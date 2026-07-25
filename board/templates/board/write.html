@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>새 글 쓰기</title>
+</head>
+<body>
+    <h1>새 글 쓰기</h1>
+    <hr>
+    
+    <!-- 데이터를 서버로 보낼 때는 반드시 method="POST"로 설정해야 합니다 -->
+    <form action="" method="POST">
+        {% csrf_token %} <!-- 장고의 강력한 해킹 방지 보안 부적 (필수!) -->
+        
+        <label>제목: </label>
+        <input type="text" name="title"><br><br>
+        
+        <label>내용: </label><br>
+        <textarea name="content" rows="5" cols="30"></textarea><br><br>
+        
+        <button type="submit">작성 완료</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 첫 게시판</title>
+</head>
+<body>
+    <h1>첫 게시판 목록</h1>
+    
+    <!-- URL 별명을 호출해서 링크를 연결하는 장고 방식 -->
+    <a href="{% url 'post_write' %}">
+        <button type="button">글 작성하기</button>
+    </a>
+    
+    <hr>
+    
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.title }}</h2> 
+                <small>작성일: {{ post.created_at }}</small>
+                <p>{{ post.content }}</p>
+            </li>
+        {% empty %}
+            <p>아직 작성된 게시글이 없습니다.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
